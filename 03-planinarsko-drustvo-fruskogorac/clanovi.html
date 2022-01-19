@@ -1,0 +1,299 @@
+<!-- <?php
+
+session_start();
+if(isset($_SESSION['ulogovan'])){
+  if($_SESSION['ulogovan']=="da"){
+
+include_once("db.php");
+$s="";
+$poruka="";
+
+if(isset($_POST['f_posalji'])){
+  
+  
+  if($_POST['f_posalji']=="Sacuvaj"){
+    
+    $sql = "insert into clanovi (sifra, ime, mesto, telefon)
+            value (0,'".$_POST['f_ime']."', '".$_POST['f_mesto']."', '".$_POST['f_telefon']."');";
+
+    $result = mysqli_query($conn,$sql);
+    if(!$result){
+      die("Greška INSERT INTO");
+    }
+    $poruka = "Uspešno ste dodali člana društva";
+  }
+  
+  
+  if($_POST['f_posalji']=="Izmeni"){
+    $sql = "update clanovi set ime='".$_POST['f_ime']."', mesto='".$_POST['f_mesto']."', telefon=".$_POST['f_telefon']." where sifra=".$_POST['f_sifra'];
+
+    $result = mysqli_query($conn,$sql);
+    if(!$result){
+      die("Greška UPDATE");
+    }
+    $poruka = "Uspešno ste izmenili člana društva";
+  }
+  
+  
+  if($_POST['f_posalji']=="Brisi"){
+    $sql = "delete from clanovi where sifra=".$_POST['f_sifra'];
+
+    $result = mysqli_query($conn,$sql);
+    if(!$result){
+      die("Greška DELETE");
+    }
+    $poruka = "Uspešno ste obrisali člana društva";
+  }
+  
+}
+      
+
+if(isset($_GET['akcija'])){
+  
+  if($_GET['akcija']=="new"){
+    $s .= "<h2>Novi član</h2>";
+    $data['btn_submit']="Sacuvaj";
+    
+    $data['sifra'] = "";
+    $data['ime'] = "";
+    $data['mesto'] = "";
+    $data['telefon'] = "";
+  }
+  
+  if($_GET['akcija']=="edit"){
+    $s .= "<h2>Izmena člana</h2>";
+    $data['btn_submit']="Izmeni";
+  }
+  
+  if($_GET['akcija']=="del"){
+    $s .= "<h2>Brisanje člana</h2>";
+    $data['btn_submit']="Brisi";
+  }
+  
+  if($_GET['akcija']=="edit" or $_GET['akcija']=="del"){
+    
+    $sql = "select * from clanovi where sifra=".$_GET['sif'];
+    $result = mysqli_query($conn,$sql);
+    if(!$result){
+      die("greška SELECT 2");
+    }
+    
+    $row = mysqli_fetch_assoc($result);
+    
+    $data['sifra'] = $row['sifra'];
+    $data['ime'] = $row['ime'];
+    $data['mesto'] = $row['mesto'];
+    $data['telefon'] = $row['telefon'];
+    }
+
+  
+  $s .= "
+  <form action='".$_SERVER['PHP_SELF']."' method='post'>
+    
+    <input type='hidden' name='f_sifra' value='".$data['sifra']."' ><br>
+  
+    Ime i prezime: <input type='text' name='f_ime' value='".$data['ime']."' required ><br><br>
+  
+    Mesto: <input type='text' name='f_mesto' value='".$data['mesto']."' required ><br><br>
+  
+    Telefon: <input type='text' name='f_telefon' value='".$data['telefon']."' required ><br><br>
+  
+
+    <input type='submit' name='f_posalji' value='".$data['btn_submit']."'  >
+  
+    <button  type='link' href='".$_SERVER['PHP_SELF']."' >Odustani</button>
+  
+  </form>";
+  
+} else {
+  
+
+$sql = "SELECT sifra, ime, mesto, telefon from clanovi";
+
+$result = mysqli_query($conn, $sql);
+if (!$result){
+  die("Greška SELECT");
+}
+
+$s .= "<h4>Pregled članova planinarskog društva Fruškogorac</h4>";
+$s .= "<p>$poruka</p>";
+$s .= "<table class='cinereousTable'>
+            <tr>
+              <th>Šifra</th>
+              <th>Ime i prezime</th>
+              <th>Mesto</th>
+              <th>Telefon</th>
+              <th></th>
+            <th><a href='".$_SERVER['PHP_SELF']."?akcija=new' >Novi</a></th>
+            </tr>";
+
+foreach($result as $row){
+  $s .= "<tr>
+           <td>".$row['sifra']."</td>
+           <td>".$row['ime']."</td>
+           <td>".$row['mesto']."</td>
+           <td>".$row['telefon']."</td>
+           
+             <td><a href='".$_SERVER['PHP_SELF']."?akcija=edit&sif=".$row['sifra']."' >Izmeni</a></td>
+             
+             <td><a href='".$_SERVER['PHP_SELF']."?akcija=del&sif=".$row['sifra']."' >Brisanje</a></td>
+             
+           </tr>";
+  }
+
+  $s .= "</table>";  
+} 
+
+mysqli_close($conn);
+
+?> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Planinarsko društvo Fruškogorac</title>
+    
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+  <!-- Custom styles for this template -->
+  <link href="css/clean-blog.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="index.php">Planinarsko društvo Fruškogorac</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Početna</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">O nama</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="clanovi.html">Članovi</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Kontakt</a>
+          </li>
+            <li class="nav-item">
+            <a class="nav-link" href="login.html">Ulogujte se</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('img/post-bg.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="page-heading">
+            <h1>Spisak članova</h1>
+            <span class="subheading">sa uplaćenom članarinom do kraja 2021. godine!</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Post Content -->
+  <article>
+        
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+         <style>
+             h4 {
+                 text-align: center;
+             }
+           table {
+             border-collapse: collapse;
+             width: 100%;
+             color: #43474f;
+             text-align: left;
+             font-size:18px;
+             }
+           table, th, td {
+             border: 1px solid grey;
+             }
+         </style>
+          <?php echo $s; ?>
+            
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <hr>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            <li class="list-inline-item">
+              <a href="#">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          </ul>
+          <p class="copyright text-muted">Copyright &copy; Goran Kukić</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/clean-blog.min.js"></script>
+
+</body>
+
+</html>
+<?php
+}
+
+} else {
+  header("location: index.php");
+}
+?>
