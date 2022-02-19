@@ -331,7 +331,7 @@ header {
   }
   
   .section p {
-    font-size: 2vw;
+    font-size: 3vw;
     text-align: justify;
     text-overflow: ellipsis;
   }
