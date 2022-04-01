@@ -1,0 +1,63 @@
+@use "variables";
+
+/*---------------------- Posts -----------------------------*/
+
+#posts {
+    background-color: variables.$clr-white;
+    .posts-wrap {
+      margin-top: 145px;
+      margin-left: 14.47vw; /*278px;*/
+      margin-right: 14.47vw; /*278px;*/
+      margin-bottom: 132px;
+      display: flex;
+      #post-1 {
+        width: auto;
+        min-height: 548px;
+        margin-right: 11px;
+      }
+      #post-2 {
+        margin-left: 11px;
+      }
+      .post {
+        .post-img-container {
+          background: url('../images/posts-img.jpg') no-repeat center; // PREBACI NA IMG TAG
+          background-size: cover;
+          height: 285px;
+          width: 100%;
+        }
+        h2 {
+          margin-top: 24px;
+          margin-left: 45px;
+          font-size: 34px;
+          line-height: 40px;
+          color: variables.$clr-purple;
+          font-weight: 400;
+        }
+        p {
+          margin-left: 45px;
+          margin-right: 40px;
+          font-weight: 400;
+          font-size: 22px;
+          line-height: 30px;
+          color: variables.$clr-charcoal;
+        }
+        .posts-link-wrap {
+          display: flex;
+          margin: 34px 17px 0px 45px;
+          align-items: center;
+          .posts-line {
+            height: 2px;
+            width: 45px;
+            background: variables.$clr-red;
+            margin-right: 13px;
+          }
+          a {
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 27px;
+          }
+        }
+      }
+    }
+  }

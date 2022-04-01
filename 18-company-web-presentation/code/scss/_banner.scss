@@ -1,0 +1,28 @@
+@use "variables";
+
+/* -------------------- Banner Section --------------------*/
+
+#banner {
+    /*top: -144px;*/
+    z-index: 1;
+    width: 100%;
+    min-height: 1080px; /* KADA GA ZAVUCES ISPOD HEDERA STAVI ;936px;*/
+    padding: 0;
+    margin: 0 auto;
+    overflow: auto;
+    background: url('../images/banner-bcg.jpg') center/cover no-repeat;
+    .banner-wrap {
+      margin-left: 14.42vw; /*277px;*/
+      margin-top: 293px; /* KADA GA ZAVUCES ISPOD HEDERA STAVI ;149px;*/
+      margin-right: 38.38vw; /*737px;*/
+      max-width: 906px;
+      h1 {
+        margin: 0 0 35px 0;
+        font-family: variables.$fon-os;
+        font-weight: 400;
+        font-size: 96px;
+        line-height: 131px;
+        color: variables.$clr-purple;
+      }
+    }
+  }

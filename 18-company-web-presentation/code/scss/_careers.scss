@@ -1,0 +1,41 @@
+@use "variables";
+
+/*---------------------- Careers ----------------------------*/
+
+#careers {
+    min-height: 835px;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url('../images/careers-bcg.jpg') center/cover no-repeat;
+    margin: 0 auto;
+    overflow: auto;
+    .careers-h2-wrapper {
+      display: flex;
+      margin-top: 31.85vh; /*16.625rem; /*266px*/
+      margin-left: 20.46vw; /*24.562rem; /*393px*/
+      background-color: variables.$clr-gray;
+      width: 92px;
+      height: 32px;
+      justify-content: center;
+      align-items: center;
+      border-radius: 5px;
+      h2 {
+        color: variables.$clr-white;
+        font-size: 16px;
+        line-height: 21.79px;
+      }
+    }
+    p {
+      margin-top: 23px;
+      margin-left: 20.46vw; /*393px;*/
+      max-width: 790px;
+      font-weight: 400;
+      font-size: 42px;
+      line-height: 49px;
+      color: variables.$clr-white;
+      padding-right: 25px;
+    }
+    .button {
+      margin-top: 35px;
+      margin-left: 20.46vw; /*393px;*/
+    }
+  }

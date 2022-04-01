@@ -1,0 +1,59 @@
+@use "variables";
+
+/* -------------------- Global styles --------------------*/
+
+:root {
+    html {
+      font-size: 100%;
+      box-sizing: border-box;
+    }
+  
+    body {
+      margin: 0px;
+      padding: 0px;
+      min-height: 100vh;
+      font-family: variables.$fon-os;
+      position: relative;
+    }
+  }
+
+/* -------------------- Button class ----------------------*/
+
+  .button {
+    background-color: variables.$clr-purple;
+    color: variables.$clr-white;
+    text-decoration: none;
+    font-family: variables.$fon-os;
+    font-size: 16px;
+    line-height: 22px;
+    padding: 12px 48px 14px 48px; /* 11px 48px 15px 48px */
+    align-items: center;
+    text-align: center;
+    border: none;
+    border-radius: 24px;
+  }
+  .button:hover {
+    background-color: variables.$clr-white;
+    color: variables.$clr-black;
+    padding: 9px 45px 11px 45px; /* 8px 45px 12px 45px*/
+    border: 3px solid variables.$clr-purple;
+    cursor: pointer;
+  }
+
+
+/* -------------------- MENU - Hamburger BUTTON ----------------------*/
+
+/* Classes that dynamicaly are added to Hamburger menu button */
+
+.change .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+  transform: rotate(-45deg) translate(-8px, 2px);
+}
+.change .bar2 {
+  opacity: 0;
+}
+.change .bar3 {
+  -webkit-transform: rotate(45deg) translate(-8px, -8px);
+  transform: rotate(45deg) translate(-9px, -4px);
+}
+
