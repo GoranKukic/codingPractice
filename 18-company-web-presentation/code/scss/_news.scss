@@ -1,0 +1,117 @@
+@use "variables";
+
+/* -------------------- News Section ----------------------*/
+
+#news {
+    background-color: variables.$clr-white;
+    margin-top: 110px; /* POKUSAJ 1 */
+    .news-wrapper {
+      /*margin-top: 110px; */
+      margin-left: 16.56vw; /*318px*/
+      margin-bottom: 110px;
+      min-height: 547px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      .news-inside-upper-wrapper {
+        min-height: 461px;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        .title-and-btn-wrapper {
+          display: flex;
+          flex-direction: column;
+          min-width: 215px;
+          height: 100%;
+          margin-right: 15px;
+          h2 {
+            margin: 0 0 68px 0;
+            font-size: 36px;
+            line-height: 42px;
+            color: variables.$clr-purple;
+          }
+          .news-arrow-btn-wrapper {
+            .news-btn {
+              background-color: variables.$clr-white;
+              color: variables.$clr-purple;
+              border: 1px solid variables.$clr-gray;
+              width: 64px;
+              height: 32px;
+              border-radius: 24px;
+              font-size: 24px;
+              margin-right: 15px;
+            }
+            .news-btn:hover {
+              background-color: variables.$clr-white;
+              background-color: variables.$clr-gray;
+            }
+            .news-btn:active{
+              font-weight: 700;
+              transform: translateY(4px);
+            }
+          }
+        }
+        .news-article-wrapper {
+          display: flex;
+          flex-direction: row;
+          gap: 15px;
+          height: 461px;
+          .news-article {
+            .article-img-container {
+              .news-article-image {
+                margin-right: 0;
+                border-radius: 10px 10px 0 0px;
+              }
+            }
+            .news-article-info {
+              display: flex;
+              flex-direction: row;
+              margin-top: -20px;
+              h6 {
+                margin: 0;
+                font-weight: 900;
+                font-size: 16px;
+                line-height: 19px;
+                color: variables.$clr-white;
+                background-color: variables.$clr-purple;
+                font-family: variables.$fon-os;
+                padding: 7px;
+                border-radius: 5px 0 0 5px;
+              }
+              time {
+                font-weight: 900;
+                font-size: 16px;
+                line-height: 19px;
+                padding: 7px;
+                background-color: variables.$clr-white;
+                color: variables.$clr-green-gray;
+                font-family: variables.$fon-os;
+                border: 1px solid variables.$clr-purple;
+                border-radius: 0 5px 5px 0;
+              }
+            }
+            p {
+              font-size: 24px;
+              line-height: 28px;
+              color: variables.$clr-red;
+              margin: 20px 40px 37px 45px;
+            }
+          }
+          .news-article > img {
+            margin-right: 0;
+            margin-left: 10px;
+            border-radius: 10px 10px 0 0;
+          }
+        }
+      }
+      .news-inside-lower-wrapper {
+        margin-top: 48px;
+        margin-left: 230px; /*12vw;*/
+        margin-bottom: 0;
+        overflow: visible; 
+        button {
+          margin-bottom: 4px;
+        }
+      }
+    }
+  }

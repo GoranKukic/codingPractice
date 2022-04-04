@@ -1,0 +1,90 @@
+@use "variables";
+
+/*---------------------- Sustainability --------------------*/
+
+#sustainability {
+    min-height: 835px; /*CHANGE TO MAX HEIGHT*/
+    margin: 0 auto;
+    overflow: auto;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url('../images/sustain-bcg.jpg') center/cover no-repeat;
+    .sustainability-wrapper {
+      margin-top: 19.76vh; /*165px;*/
+      margin-right: 14.42vw; /*277px;*/
+      margin-left: 14.42vw; /*277px;*/
+      .sustain-wrap-1 {
+        display: block;
+        text-align: right;
+        h2 {
+          display: inline-block;
+          width: fit-content;
+          background-color: variables.$clr-gray;
+          color: variables.$clr-white;
+          margin-top: 0;
+          font-size: 16px;
+          line-height: 21.79px;
+          padding: 5px 15px 5px 15px;
+          border-radius: 5px;
+        }
+        p {
+          display: block;
+          font-size: 42px;
+          line-height: 49.35px;
+          color: variables.$clr-white;
+          margin-top: 0;
+          margin-bottom: 38px;
+        }
+        .button {
+          display: inline-block;
+          margin-bottom: 79px;
+        }
+      }
+      .sustainability-columns {
+        display: flex;
+        flex-wrap: wrap;
+        flex-flow: row-reverse wrap;
+        color: variables.$clr-white;
+        text-align: right;
+        margin-bottom: 152px;
+  
+        .sustainability-col {
+          margin-left: 15px;
+          overflow: hidden;
+          .sustainability-col-1 {
+            font-size: 62px;
+            line-height: 72.85px;
+            margin-top: 0;
+            margin-bottom: 7px;
+          }
+          .sustainability-col-2 {
+            font-size: 20px;
+            line-height: 23.5px;
+            margin: 0;
+          }
+        }
+      }
+      .sustainability-columns > * {
+        max-width: 215px;
+      }
+      .sustain-col-btn {
+        display: none;
+        background-color: variables.$clr-gray;
+        color: variables.$clr-purple;
+        border: 1px solid variables.$clr-white;
+        width: 64px;
+        height: 32px;
+        border-radius: 24px;
+        font-size: 24px;
+        margin-right: 15px;
+        margin-bottom: 4px;
+      }
+      .sustain-col-btn:hover {
+        background-color: variables.$clr-white;
+        border: 1px solid variables.$clr-gray;
+      }
+      .sustain-col-btn:active{
+        font-weight: 700;
+        transform: translateY(4px);
+      }
+    }
+  }
