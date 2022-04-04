@@ -41,8 +41,9 @@
     }
   .button:active {
     color: variables.$clr-purple;
-    font-weight: 700;
-    transform: translateY(4px);
+    background-color: variables.$clr-second-gray;
+    /*font-weight: 700;*/
+    /*transform: translateY(4px);*/
     /*box-shadow: 10px 10px 25px variables.$clr-gray;*/
   }
 
